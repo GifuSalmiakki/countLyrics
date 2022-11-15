@@ -5,6 +5,8 @@
 import requests
 from bs4 import BeautifulSoup
 
+# TODO: download the content locally to minimize the amount of requests
+
 print("Enter the artist: ")
 input = "twilightforce"
 artist = input.strip().lower().replace(" ", "")
