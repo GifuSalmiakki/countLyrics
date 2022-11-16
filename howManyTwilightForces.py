@@ -5,7 +5,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-# TODO: download the content locally to minimize the amount of requests
+
 
 def get_artist():
 
@@ -26,6 +26,8 @@ def run_scraper(artist):
     soup = BeautifulSoup(page.content, "html5lib")
     song_links = soup.findAll("div", {"class": "listalbum-item"})
 
+    # TODO: time requests to stop the site from blocking my IP
+
     all_lyrics = []
     for song in song_links:
         links = song.findAll("a")
@@ -39,6 +41,8 @@ def run_scraper(artist):
     print(all_lyrics[0])
     return all_lyrics
 
+    # TODO: can the lyric div be isolated somehow? (the div seems to have no class or id)
+    # TODO: separate the lyrics from rest of the text on the page
 
 def count_lyric_frequency(all_lyrics, words_to_find, artist):
 
